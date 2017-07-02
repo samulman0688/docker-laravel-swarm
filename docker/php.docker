@@ -1,0 +1,7 @@
+FROM php:7.1.6-fpm
+
+ENV LANG="ko_KR.UTF-8"
+ENV LANGUAGE="ko_KR:ko:en_US:en"
+ENV TZ Asia/Seoul
+
+COPY . /var/www/docker-laravel-swarm
