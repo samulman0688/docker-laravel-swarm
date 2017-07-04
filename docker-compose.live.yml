@@ -14,8 +14,6 @@ services:
     build:
       context: ./
       dockerfile: docker/nginx.docker
-    volumes:
-      - ~/log/nginx:/var/log/nginx
     ports:
       - 12345:80
     depends_on:
