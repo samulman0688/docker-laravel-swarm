@@ -10,3 +10,7 @@ CMD \
     chown -R www-data:www-data /var/www/docker-laravel-swarm && \
     php /var/www/docker-laravel-swarm/artisan key:generate && \
     php-fpm
+
+#HEALTHCHECK --interval=10s --timeout=10s --retries=10 \
+#    CMD \
+#    cgi-fcgi -bind -connect 127.0.0.1:9000 || exit 1
