@@ -29,3 +29,10 @@ docker-compose -f docker-compose.live.yml build
 docker-compose -f docker-compose.live.yml push
 docker stack deploy -c docker-compose.live.yml --with-registry-auth laravel
 ```
+
+# 라이브 롤링 업데이트
+```
+docker-compose -f docker-compose.live.yml build php
+docker-compose -f docker-compose.live.yml push php
+docker service update --image samulman0688/laravel-app --detach=false laravel_php
+```
