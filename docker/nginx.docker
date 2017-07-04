@@ -1,0 +1,9 @@
+FROM nginx:1.10
+
+ENV LANG ko_KR.UTF-8
+ENV LANGUAGE ko_KR:ko:en_US:en
+ENV TZ Asia/Seoul
+
+RUN rm /etc/nginx/conf.d/default.conf
+
+COPY docker/nginx.conf /etc/nginx/conf.d/nginx.conf

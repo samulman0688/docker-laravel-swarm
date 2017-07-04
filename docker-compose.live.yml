@@ -1,0 +1,23 @@
+version: '3'
+
+services:
+  php:
+    image: samulman0688/laravel-app
+    build:
+      context: ./
+      dockerfile: docker/php.docker
+    deploy:
+      mode: replicated
+      replicas: 3
+  nginx:
+    image: samulman0688/laravel-web
+    build:
+      context: ./
+      dockerfile: docker/nginx.docker
+    ports:
+      - 12345:80
+    depends_on:
+      - php
+    deploy:
+      mode: replicated
+      replicas: 2

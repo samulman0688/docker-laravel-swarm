@@ -1,0 +1,26 @@
+version: '3'
+
+services:
+  php:
+    image: samulman0688/laravel-app
+    container_name: laravel-app
+    build:
+      context: ./
+      dockerfile: docker/php.docker
+    volumes:
+      - ./:/var/www/docker-laravel-swarm
+  nginx:
+    image: samulman0688/laravel-web
+    container_name: laravel-web
+    build:
+      context: ./
+      dockerfile: docker/nginx.docker
+    volumes:
+      - ./:/var/www/docker-laravel-swarm
+      - ./storage/logs/nginx:/var/log/nginx
+    ports:
+      - 12345:80
+    depends_on:
+      - php
+    links:
+      - php
