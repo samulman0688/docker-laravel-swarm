@@ -21,6 +21,7 @@ worker  AMI : ami-3a03dc54
 
 sudo apt-get install -y python-pip && pip install docker-compose
 git clone https://github.com/samulman0688/docker-laravel-swarm.git
+디렉토리 이동후 composer install
 cp .env.example .env
 docker login
 docker swarm init (출력내용을 다른 호스트에서 실행하여 swarm join)
