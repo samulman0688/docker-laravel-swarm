@@ -5,3 +5,5 @@ ENV LANGUAGE="ko_KR:ko:en_US:en"
 ENV TZ Asia/Seoul
 
 COPY . /var/www/docker-laravel-swarm
+
+CMD php /var/www/docker-laravel-swarm/artisan key:generate && php-fpm
