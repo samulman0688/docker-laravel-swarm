@@ -22,7 +22,7 @@ worker  AMI : ami-3a03dc54 (docker stable)
 sudo apt-get install -y python-pip && pip install docker-compose
 
 git clone https://github.com/samulman0688/docker-laravel-swarm.git
-디렉토리 이동후 cp .env.example .env && composer install
+디렉토리 이동후 cp .env.example .env && composer install && php artisan key:generate
 
 docker login
 docker-compose -f docker-compose.live.yml build
